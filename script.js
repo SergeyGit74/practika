@@ -8,13 +8,30 @@ let personalMovieDb = {
     privat: false
 };
 
-let a = prompt("Один из последних просмотренных фильмов?")
-let b = prompt("На сколько оцените его?")
-let c = prompt("Один из последних просмотренных фильмов?")
-let d = prompt("На сколько оцените его?")
+for (let i = 0; i < 2; i++) {
+    let a = prompt("Один из последних просмотренных фильмов?"),
+        b = prompt("На сколько оцените его?");
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDb.movies[a] = b;
+        console.log("done");
+    } else {
+        console.log('error');
+        i--;
+    }   
+}
 
-personalMovieDb.movies[a] = b;
-personalMovieDb.movies[c] = d;
 
-console.log(numberOfFilms);
-console.log(personalMovieDb);
+
+
+if (personalMovieDb.count < 10) {
+    console.log("Вы посмотрели мало фильмов");
+} else if (personalMovieDb.count >= 10 && personalMovieDb.count < 30 ) {
+    console.log("Вы обычный зритель");
+} else if(personalMovieDb.count >= 30) {
+    console.log("Вы киноман");
+} else {
+    console.log('Вы ввели не число')
+};
+
+
+console.log(personalMovieDb)
